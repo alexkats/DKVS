@@ -42,4 +42,6 @@ public interface Message {
     }
 
     public String print();
+
+    public SocketAddress getAddress();
 }

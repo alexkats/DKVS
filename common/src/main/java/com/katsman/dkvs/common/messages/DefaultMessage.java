@@ -14,6 +14,7 @@ public abstract class DefaultMessage implements Message {
         this.address = address;
     }
 
+    @Override
     public SocketAddress getAddress() {
         return address;
     }
