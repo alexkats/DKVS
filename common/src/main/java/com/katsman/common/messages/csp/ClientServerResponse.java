@@ -18,14 +18,14 @@ import java.util.stream.Collectors;
 public class ClientServerResponse extends DefaultMessage {
     private final Operation operation;
     private final String result;
-    private final boolean ok;
+    private final boolean success;
     private final List<InetSocketAddress> redirections;
 
-    public ClientServerResponse(SocketAddress address, Operation operation, String result, boolean ok, List<InetSocketAddress> redirections) {
+    public ClientServerResponse(SocketAddress address, Operation operation, String result, boolean success, List<InetSocketAddress> redirections) {
         super(address);
         this.operation = operation;
         this.result = result;
-        this.ok = ok;
+        this.success = success;
         this.redirections = redirections;
     }
 
@@ -37,8 +37,8 @@ public class ClientServerResponse extends DefaultMessage {
         return result;
     }
 
-    public boolean isOk() {
-        return ok;
+    public boolean isSuccess() {
+        return success;
     }
 
     public List<InetSocketAddress> getRedirections() {
@@ -69,8 +69,8 @@ public class ClientServerResponse extends DefaultMessage {
         StringBuilder sb = new StringBuilder();
         sb.append("ClientServerResponse { operation = ");
         sb.append(operation.name());
-        sb.append("; ok = ");
-        sb.append(ok);
+        sb.append("; success = ");
+        sb.append(success);
         sb.append("; result = ");
         sb.append(result == null ? "null" : result);
         sb.append("; redirections = [");
@@ -85,7 +85,7 @@ public class ClientServerResponse extends DefaultMessage {
         sb.append("ClientServerResponse | ");
         sb.append(operation.name());
         sb.append(" | ");
-        sb.append(ok);
+        sb.append(success);
         sb.append(" | ");
         sb.append(result == null ? "null" : result);
         sb.append("\n");
