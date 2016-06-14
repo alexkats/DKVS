@@ -1,6 +1,9 @@
 package com.katsman.common.messages;
 
 import com.katsman.common.messages.csp.ClientServerRequest;
+import com.katsman.common.messages.csp.ClientServerResponse;
+import com.katsman.common.messages.ssp.VoteRequest;
+import com.katsman.common.messages.ssp.VoteResponse;
 
 import java.net.SocketAddress;
 import java.util.Scanner;
@@ -15,8 +18,14 @@ public interface Message {
         String s = scanner.next();
 
         switch (s) {
-            case "client_server_request":
+            case "ClientServerRequest":
                 return ClientServerRequest.parse(address, scanner);
+            case "ClientServerResponse":
+                return ClientServerResponse.parse(address, scanner);
+            case "VoteRequest":
+                return VoteRequest.parse(address, scanner);
+            case "VoteResponse":
+                return VoteResponse.parse(address, scanner);
             default:
                 return null;
         }

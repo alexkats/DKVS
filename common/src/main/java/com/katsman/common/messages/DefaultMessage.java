@@ -8,9 +8,13 @@ import java.net.SocketAddress;
  */
 
 public abstract class DefaultMessage implements Message {
-    public final SocketAddress address;
+    private final SocketAddress address;
 
-    public DefaultMessage(SocketAddress address) {
+    protected DefaultMessage(SocketAddress address) {
         this.address = address;
+    }
+
+    public SocketAddress getAddress() {
+        return address;
     }
 }
