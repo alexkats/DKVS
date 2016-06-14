@@ -1,6 +1,6 @@
-package com.katsman.common.messages;
+package com.katsman.dkvs.common.messages;
 
-import com.katsman.common.utils.Operation;
+import com.katsman.dkvs.common.utils.Operation;
 
 import java.util.Scanner;
 

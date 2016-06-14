@@ -1,7 +1,7 @@
-package com.katsman.common.messages.csp;
+package com.katsman.dkvs.common.messages.csp;
 
-import com.katsman.common.messages.DefaultMessage;
-import com.katsman.common.utils.Operation;
+import com.katsman.dkvs.common.messages.DefaultMessage;
+import com.katsman.dkvs.common.utils.Operation;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -15,30 +15,30 @@ import java.util.stream.Collectors;
  * @since 14.06.16
  */
 
-public class ClientServerResponse extends DefaultMessage {
+public class ClientServerRequest extends DefaultMessage {
+    private final String key;
+    private final String value;
     private final Operation operation;
-    private final String result;
-    private final boolean success;
     private final List<InetSocketAddress> redirections;
 
-    public ClientServerResponse(SocketAddress address, Operation operation, String result, boolean success, List<InetSocketAddress> redirections) {
+    public ClientServerRequest(SocketAddress address, String key, String value, Operation operation, List<InetSocketAddress> redirections) {
         super(address);
+        this.key = key;
+        this.value = value;
         this.operation = operation;
-        this.result = result;
-        this.success = success;
         this.redirections = redirections;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     public Operation getOperation() {
         return operation;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public boolean isSuccess() {
-        return success;
     }
 
     public List<InetSocketAddress> getRedirections() {
@@ -56,23 +56,23 @@ public class ClientServerResponse extends DefaultMessage {
         return redirections;
     }
 
-    public static ClientServerResponse parse(SocketAddress address, Scanner scanner) {
+    public static ClientServerRequest parse(SocketAddress address, Scanner scanner) {
         Operation operation = Operation.valueOf(scanner.next());
-        boolean ok = scanner.nextBoolean();
-        String result = scanner.nextLine().substring(1);
+        String key = scanner.next();
+        String value = scanner.nextLine().substring(1);
         List<InetSocketAddress> redirections = receiveRedirections(scanner);
-        return new ClientServerResponse(address, operation, result, ok, redirections);
+        return new ClientServerRequest(address, key, value, operation, redirections);
     }
 
     @Override
     public String print() {
         StringBuilder sb = new StringBuilder();
-        sb.append("ClientServerResponse { operation = ");
+        sb.append("ClientServerRequest { operation = ");
         sb.append(operation.name());
-        sb.append("; success = ");
-        sb.append(success);
-        sb.append("; result = ");
-        sb.append(result == null ? "null" : result);
+        sb.append("; key = ");
+        sb.append(key == null ? "null" : key);
+        sb.append("; value = ");
+        sb.append(value == null ? "null" : value);
         sb.append("; redirections = [");
         sb.append(redirections.stream().map(InetSocketAddress::toString).collect(Collectors.joining(", ")));
         sb.append("] }");
@@ -82,12 +82,12 @@ public class ClientServerResponse extends DefaultMessage {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("ClientServerResponse | ");
+        sb.append("ClientServerRequest | ");
         sb.append(operation.name());
         sb.append(" | ");
-        sb.append(success);
+        sb.append(key == null ? "null" : key);
         sb.append(" | ");
-        sb.append(result == null ? "null" : result);
+        sb.append(value == null ? "null" : value);
         sb.append("\n");
         sb.append(redirections.size());
         sb.append("\n");

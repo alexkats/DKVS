@@ -1,4 +1,4 @@
-package com.katsman.common.utils;
+package com.katsman.dkvs.common.utils;
 
 /**
  * @author Alexey Katsman

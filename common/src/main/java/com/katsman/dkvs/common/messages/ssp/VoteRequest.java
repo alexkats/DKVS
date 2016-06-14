@@ -1,6 +1,6 @@
-package com.katsman.common.messages.ssp;
+package com.katsman.dkvs.common.messages.ssp;
 
-import com.katsman.common.messages.DefaultMessage;
+import com.katsman.dkvs.common.messages.DefaultMessage;
 
 import java.net.SocketAddress;
 import java.util.Scanner;

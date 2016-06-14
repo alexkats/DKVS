@@ -1,11 +1,11 @@
-package com.katsman.common.messages;
+package com.katsman.dkvs.common.messages;
 
-import com.katsman.common.messages.csp.ClientServerRequest;
-import com.katsman.common.messages.csp.ClientServerResponse;
-import com.katsman.common.messages.ssp.AppendEntriesRequest;
-import com.katsman.common.messages.ssp.AppendEntriesResult;
-import com.katsman.common.messages.ssp.VoteRequest;
-import com.katsman.common.messages.ssp.VoteResponse;
+import com.katsman.dkvs.common.messages.csp.ClientServerRequest;
+import com.katsman.dkvs.common.messages.csp.ClientServerResponse;
+import com.katsman.dkvs.common.messages.ssp.AppendEntriesRequest;
+import com.katsman.dkvs.common.messages.ssp.AppendEntriesResult;
+import com.katsman.dkvs.common.messages.ssp.VoteRequest;
+import com.katsman.dkvs.common.messages.ssp.VoteResponse;
 
 import java.net.SocketAddress;
 import java.util.Scanner;

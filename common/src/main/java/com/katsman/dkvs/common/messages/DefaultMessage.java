@@ -1,4 +1,4 @@
-package com.katsman.common.messages;
+package com.katsman.dkvs.common.messages;
 
 import java.net.SocketAddress;
 
