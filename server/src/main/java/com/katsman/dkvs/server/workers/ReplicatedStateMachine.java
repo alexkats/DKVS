@@ -4,7 +4,6 @@ import com.katsman.dkvs.common.messages.Entry;
 import com.katsman.dkvs.common.messages.Message;
 import com.katsman.dkvs.common.messages.csp.ClientServerRequest;
 import com.katsman.dkvs.common.messages.csp.ClientServerResponse;
-import com.katsman.dkvs.common.utils.Operation;
 import com.katsman.dkvs.common.utils.ParseException;
 import com.katsman.dkvs.server.utils.Configuration;
 
