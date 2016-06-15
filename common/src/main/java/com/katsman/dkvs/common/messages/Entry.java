@@ -2,6 +2,7 @@ package com.katsman.dkvs.common.messages;
 
 import com.katsman.dkvs.common.utils.Operation;
 
+import java.net.SocketAddress;
 import java.util.Scanner;
 
 /**
@@ -73,5 +74,10 @@ public class Entry implements Message {
         sb.append(" | ");
         sb.append(value == null ? "null" : value);
         return sb.toString();
+    }
+
+    @Override
+    public SocketAddress getAddress() {
+        return null;
     }
 }
