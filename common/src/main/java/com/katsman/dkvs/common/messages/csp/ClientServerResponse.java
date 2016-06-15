@@ -47,9 +47,8 @@ public class ClientServerResponse extends DefaultMessage {
 
     private static List<InetSocketAddress> receiveRedirections(Scanner scanner) {
         List<InetSocketAddress> redirections = new ArrayList<>();
-        int n = scanner.nextInt();
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < scanner.nextInt(); i++) {
             redirections.add(new InetSocketAddress(scanner.next(), scanner.nextInt()));
         }
 
@@ -58,10 +57,10 @@ public class ClientServerResponse extends DefaultMessage {
 
     public static ClientServerResponse parse(SocketAddress address, Scanner scanner) {
         Operation operation = Operation.valueOf(scanner.next());
-        boolean ok = scanner.nextBoolean();
+        boolean success = scanner.nextBoolean();
         String result = scanner.nextLine().substring(1);
         List<InetSocketAddress> redirections = receiveRedirections(scanner);
-        return new ClientServerResponse(address, operation, result, ok, redirections);
+        return new ClientServerResponse(address, operation, result, success, redirections);
     }
 
     @Override
@@ -82,16 +81,16 @@ public class ClientServerResponse extends DefaultMessage {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("ClientServerResponse | ");
+        sb.append("ClientServerResponse ");
         sb.append(operation.name());
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(success);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(result == null ? "null" : result);
         sb.append("\n");
         sb.append(redirections.size());
         sb.append("\n");
-        sb.append(redirections.stream().map(e -> (e.getHostName() + " | " + e.getPort())).collect(Collectors.joining("\n")));
+        sb.append(redirections.stream().map(e -> (e.getHostName() + " " + e.getPort())).collect(Collectors.joining("\n")));
         return sb.toString();
     }
 }

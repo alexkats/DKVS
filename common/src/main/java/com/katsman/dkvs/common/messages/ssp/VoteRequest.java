@@ -66,13 +66,13 @@ public class VoteRequest extends DefaultMessage {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("VoteRequest | ");
+        sb.append("VoteRequest ");
         sb.append(term);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(candidateId);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(lastLogIndex);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(lastLogTerm);
         return sb.toString();
     }

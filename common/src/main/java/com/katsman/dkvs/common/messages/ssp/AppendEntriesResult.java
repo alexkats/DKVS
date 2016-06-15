@@ -66,13 +66,13 @@ public class AppendEntriesResult extends DefaultMessage {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("AppendEntriesResult | ");
+        sb.append("AppendEntriesResult ");
         sb.append(term);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(success);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(length);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(id);
         return sb.toString();
     }

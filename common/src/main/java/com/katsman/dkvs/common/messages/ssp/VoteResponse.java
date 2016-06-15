@@ -40,9 +40,9 @@ public class VoteResponse extends DefaultMessage {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("VoteResponse | ");
+        sb.append("VoteResponse ");
         sb.append(term);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(voteGranted);
         return sb.toString();
     }

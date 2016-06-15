@@ -47,9 +47,8 @@ public class ClientServerRequest extends DefaultMessage {
 
     private static List<InetSocketAddress> receiveRedirections(Scanner scanner) {
         List<InetSocketAddress> redirections = new ArrayList<>();
-        int n = scanner.nextInt();
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < scanner.nextInt(); i++) {
             redirections.add(new InetSocketAddress(scanner.next(), scanner.nextInt()));
         }
 
@@ -82,16 +81,16 @@ public class ClientServerRequest extends DefaultMessage {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("ClientServerRequest | ");
+        sb.append("ClientServerRequest ");
         sb.append(operation.name());
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(key == null ? "null" : key);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(value == null ? "null" : value);
         sb.append("\n");
         sb.append(redirections.size());
         sb.append("\n");
-        sb.append(redirections.stream().map(e -> (e.getHostName() + " | " + e.getPort())).collect(Collectors.joining("\n")));
+        sb.append(redirections.stream().map(e -> (e.getHostName() + " " + e.getPort())).collect(Collectors.joining("\n")));
         return sb.toString();
     }
 }

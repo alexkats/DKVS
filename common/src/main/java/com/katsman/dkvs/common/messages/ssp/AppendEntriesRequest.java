@@ -98,16 +98,17 @@ public class AppendEntriesRequest extends DefaultMessage {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("AppendEntriesRequest | ");
+        sb.append("AppendEntriesRequest ");
         sb.append(term);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(leaderId);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(prevLogIndex);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(prevLogTerm);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(entries.size());
+        sb.append("\n");
         sb.append(entries.stream().map(Object::toString).collect(Collectors.joining("\n")));
         sb.append("\n");
         sb.append(leaderCommit);
