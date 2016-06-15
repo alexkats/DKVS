@@ -20,6 +20,14 @@ public class VoteResponse extends DefaultMessage {
         this.voteGranted = voteGranted;
     }
 
+    public int getTerm() {
+        return term;
+    }
+
+    public boolean isVoteGranted() {
+        return voteGranted;
+    }
+
     public static VoteResponse parse(SocketAddress address, Scanner scanner) {
         int term = scanner.nextInt();
         boolean voteGranted = scanner.nextBoolean();
