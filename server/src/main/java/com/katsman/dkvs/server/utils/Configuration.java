@@ -19,7 +19,7 @@ public class Configuration {
     private final List<Integer> ports;
 
     public Configuration(String fileName, int nodeNumber) throws ParseException, FileNotFoundException {
-        this.nodeNumber = nodeNumber + 1;
+        this.nodeNumber = nodeNumber - 1;
         Scanner scanner = new Scanner(new File(fileName));
         Map<String, String> properties = new HashMap<>();
 
@@ -41,7 +41,7 @@ public class Configuration {
             ports = new ArrayList<>();
 
             for (int i = 0; i < serversCount; i++) {
-                String address = get(properties, ("node." + i));
+                String address = get(properties, ("node." + (i + 1)));
                 int pos = address.indexOf(":");
 
                 if (pos == -1) {

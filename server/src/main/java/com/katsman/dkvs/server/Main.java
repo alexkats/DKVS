@@ -24,11 +24,11 @@ public class Main {
 
             if (s == null || s.equals("")) {
                 try {
-                    new Server(new Configuration(fileName, 0)).start();
                     new Server(new Configuration(fileName, 1)).start();
                     new Server(new Configuration(fileName, 2)).start();
                     new Server(new Configuration(fileName, 3)).start();
                     new Server(new Configuration(fileName, 4)).start();
+                    new Server(new Configuration(fileName, 5)).start();
                 } catch (ParseException | FileNotFoundException e) {
                     System.out.println("Can't read properties file: " + e.getMessage());
                 } catch (IOException e) {
