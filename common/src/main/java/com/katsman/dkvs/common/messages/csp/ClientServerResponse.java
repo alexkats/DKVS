@@ -47,8 +47,9 @@ public class ClientServerResponse extends DefaultMessage {
 
     private static List<InetSocketAddress> receiveRedirections(Scanner scanner) {
         List<InetSocketAddress> redirections = new ArrayList<>();
+        int n = scanner.nextInt();
 
-        for (int i = 0; i < scanner.nextInt(); i++) {
+        for (int i = 0; i < n; i++) {
             redirections.add(new InetSocketAddress(scanner.next(), scanner.nextInt()));
         }
 

@@ -27,7 +27,7 @@ public class Main {
         printHelp();
 
         while (true) {
-            System.out.println("> ");
+            System.out.print("> ");
             String command = scanner.next().toLowerCase();
 
             switch (command) {
@@ -71,6 +71,7 @@ public class Main {
                 in = new Scanner(socket.getInputStream());
                 out = new PrintWriter(socket.getOutputStream());
                 connected = true;
+                System.out.println("Connected successfully");
             }
         } catch (IOException e) {
             System.out.println("Can't connect: " + e.getMessage());
@@ -79,13 +80,14 @@ public class Main {
     }
 
     private static void disconnect() {
-        if (connected) {
-            System.out.println("Already connected!");
+        if (!connected) {
+            System.out.println("Not connected!");
         } else {
             out.write("end");
             out.close();
             in.close();
             connected = false;
+            System.out.println("Disconnected successfully");
         }
     }
 
@@ -210,7 +212,7 @@ public class Main {
 
     private static Message receiveResponse(Scanner scanner) {
         if (scanner.next().equals("message")) {
-            return Message.parse(scanner);
+            return Message.parse(null, scanner);
         } else {
             return null;
         }

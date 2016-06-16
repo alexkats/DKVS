@@ -58,8 +58,9 @@ public class AppendEntriesRequest extends DefaultMessage {
 
     private static List<Message> receiveEntries(Scanner scanner) {
         List<Message> entries = new ArrayList<>();
+        int n = scanner.nextInt();
 
-        for (int i = 0; i < scanner.nextInt(); i++) {
+        for (int i = 0; i < n; i++) {
             entries.add(Message.parse(scanner));
         }
 

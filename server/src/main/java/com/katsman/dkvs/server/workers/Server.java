@@ -43,6 +43,8 @@ public class Server extends Thread {
 
         if (configuration.getNodeNumber() == 0) {
             state.state = State.LEADER;
+        } else {
+            state.state = State.FOLLOWER;
         }
 
         active = true;
@@ -129,8 +131,7 @@ public class Server extends Thread {
                 }
 
                 break;
-            case FOLLOWER:
-            case CANDIDATE:
+            default:
                 state.state = State.CANDIDATE;
                 state.leader = -1;
                 state.setTerm(state.term + 1);

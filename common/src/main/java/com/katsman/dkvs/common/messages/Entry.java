@@ -40,6 +40,7 @@ public class Entry implements Message {
     }
 
     public static Entry parse(Scanner scanner) {
+        scanner.next();
         int term = scanner.nextInt();
         Operation operation = Operation.valueOf(scanner.next());
         String key = scanner.next();
@@ -65,13 +66,13 @@ public class Entry implements Message {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Entry | ");
+        sb.append("Entry ");
         sb.append(term);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(operation.name());
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(key == null ? "null" : key);
-        sb.append(" | ");
+        sb.append(" ");
         sb.append(value == null ? "null" : value);
         return sb.toString();
     }

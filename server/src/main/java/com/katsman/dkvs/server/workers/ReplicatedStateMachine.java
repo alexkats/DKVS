@@ -125,8 +125,6 @@ public class ReplicatedStateMachine {
                     }
 
                     break;
-                default:
-                    throw new ParseException("Log file was corrupted!");
             }
 
             return null;
